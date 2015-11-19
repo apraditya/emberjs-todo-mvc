@@ -37,6 +37,28 @@
     ]
   },
 
+  "app/mirage/factories/*.js": {
+    "command": "fixtures",
+    "template": [
+      "// More info: http://www.ember-cli-mirage.com/docs/v0.1.x/quickstart",
+      "",
+      "import Mirage, {faker} from 'ember-cli-mirage';",
+      "",
+      "export default Mirage.Factory.extend({",
+      "});",
+    ]
+  },
+
+  "app/mirage/scenarios/*.js": {
+    "command": "scenario",
+    "template": [
+      "// More info: http://www.ember-cli-mirage.com/docs/v0.1.x/quickstart",
+      "",
+      "export default function(server) {",
+      "});",
+    ]
+  },
+
   "app/models/*.js": {
     "command": "model",
     "template": [
