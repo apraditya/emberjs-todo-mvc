@@ -14,6 +14,25 @@ export default function() {
   /*
     Route shorthand cheatsheet
   */
+  this.get('/todos/:id', function(db, request) {
+    let id  = request.params.id;
+
+    return {
+      data: {
+        type: 'todos',
+        id: id,
+        attributes: db.todos.find(id)
+      }
+    };
+  });
+
+  this.get('/todos', function(db, request) {
+    return {
+      data: db.todos.map(attrs => (
+                    { type: 'todos', id: attrs.id, attributes: attrs }
+                  ))
+    };
+  });
   /*
     GET shorthands
 
