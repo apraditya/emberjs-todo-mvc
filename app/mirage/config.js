@@ -26,11 +26,23 @@ export default function() {
     };
   });
 
-  this.get('/todos', function(db, request) {
+  this.get('/todos', function(db) {
     return {
       data: db.todos.map(attrs => (
                     { type: 'todos', id: attrs.id, attributes: attrs }
                   ))
+    };
+  });
+
+  this.post('/todos', function(db, request) {
+    var attr = JSON.parse(request.requestBody).data.attributes;
+    var record  = db.todos.insert(attr);
+    return {
+      data: {
+        type: 'todos',
+        id: record.id,
+        attributes: attr
+      }
     };
   });
   /*
