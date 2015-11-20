@@ -5,14 +5,6 @@ moduleForComponent('todos-container', 'Integration | Component | todos container
   integration: true
 });
 
-test('it renders', function(assert) {
-  assert.expect(1);
-
-  this.render(hbs`{{todos-container}}`);
-
-  assert.equal(this.$().text().trim(), 'Todos');
-});
-
 test('it renders with existing todos', function(assert) {
   var todoModels  = [
     { id: 1,
