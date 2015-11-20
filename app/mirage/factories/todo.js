@@ -3,6 +3,8 @@
 import Mirage, {faker} from 'ember-cli-mirage';
 
 export default Mirage.Factory.extend({
-  title(i) { return `Do work ${i}`; },
-  'is-completed': false
+  title() { return `${faker.hacker.verb()} ${faker.internet.domainName()}`; },
+  'is-completed': function() {
+    return faker.random.boolean();
+  }
 });
